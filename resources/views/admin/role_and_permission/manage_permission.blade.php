@@ -13,11 +13,11 @@
                     {{csrf_field()}}
                     <div class="form-group">
                         <label>{{trans('Permission Name')}}</label>
-                        <input type="text" class="form-control" name="name" value="{{$permission_edit?$permission_edit->name:''}}" {{$permission_edit?'disabled':''}}>
+                        <input type="text" class="form-control" name="name" value="{{$permission_edit?$permission_edit->name:''}}" {{$permission_edit?'disabled':''}} placeholder="Is route name">
                     </div>
                     <div class="form-group">
-                        <label>{{trans('Name View')}}</label>
-                        <input type="text" class="form-control" name="name_view" value="{{$permission_edit?$permission_edit->name_view:''}}">
+                        <label>{{trans('Desc')}}</label>
+                        <input type="text" class="form-control" name="desc" value="{{$permission_edit?$permission_edit->desc:''}}">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary" style="min-width: 100px">{{$permission_edit?'Save':'Add'}}</button>
@@ -48,7 +48,7 @@
                         <tr>
                             <th>#</th>
                             <th>name</th>
-                            <th>name view</th>
+                            <th>desc</th>
                             <th>created_at</th>
                             <th>updated_at</th>
                             <th></th>
@@ -62,7 +62,7 @@
                                     <input type="hidden" value="{{$permission->id}}">
                                 </td>
                                 <td>{{$permission->name}}</td>
-                                <td>{{$permission->name_view}}</td>
+                                <td>{{$permission->desc}}</td>
                                 <td>{{dateToDDMMYY($permission->created_at)}}</td>
                                 <td>{{dateToDDMMYY($permission->updated_at)}}</td>
                                 <td>

@@ -15,20 +15,21 @@ class CreateUserstbTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email');
-            $table->string('password');
-            $table->string('role_id');
-            $table->string('slug');
-            $table->string('name');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('avatar');
-            $table->string('gender');
-            $table->string('phone');
-            $table->string('birthday');
-            $table->string('fb_id');
-            $table->string('gg_id');
-            $table->string('status');
+            $table->string('email',30)->unique();
+            $table->string('password',30);
+            $table->boolean('role_id')->default(0);
+            $table->string('slug',50);
+            $table->string('name',50);
+            $table->string('first_name',30);
+            $table->string('last_name',30);
+            $table->string('avatar',50);
+            $table->string('gender',5);
+            $table->string('phone',11);
+            $table->date('birthday');
+            $table->string('fb_id',30);
+            $table->string('gg_id',30);
+            $table->string('status')->default(0);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

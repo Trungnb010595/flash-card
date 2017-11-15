@@ -29,7 +29,7 @@ class CreatePermissionTables extends Migration
             $table->timestamps();
         });
 
-        /*Schema::create($config['user_has_permissions'], function (Blueprint $table) use ($config) {
+        Schema::create($config['user_has_permissions'], function (Blueprint $table) use ($config) {
             $table->integer('user_id')->unsigned();
             $table->integer('permission_id')->unsigned();
 
@@ -44,7 +44,7 @@ class CreatePermissionTables extends Migration
                 ->onDelete('cascade');
 
             $table->primary(['user_id', 'permission_id']);
-        });*/
+        });
 
         Schema::create($config['user_has_roles'], function (Blueprint $table) use ($config) {
             $table->integer('role_id')->unsigned();

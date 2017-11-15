@@ -7,7 +7,9 @@
         </div>
         <div class="row panel-heading panel-heading-actions">
             <div class="row panel-heading panel-heading-actions">
-
+                <a href="{{route('admin.user.add')}}">
+                    <div class="btn btn-primary pull-right">{{trans('Add User')}}</div>
+                </a>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -18,10 +20,10 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Role</th>
-                            <th>Vị trí</th>
+                            <th>Phone</th>
+                            <th>Created_at</th>
+                            <th>Updated_at</th>
                             <th>Status</th>
-                            {{--<th>Vip</th>--}}
-                            <th>Quê</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -33,8 +35,10 @@
                                     <td>{{$index + 1}}</td>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->role_id}}</td>
-                                    <td>{{$user->position}}</td>
+                                    <td>{{\Spatie\Permission\Models\Role::find($user->role_id)->name}}</td>
+                                    <td>{{$user->phone}}</td>
+                                    <td>{{$user->created_at}}</td>
+                                    <td>{{$user->updated_at}}</td>
                                     <td>
                                         @if($user->status)
                                             <a href="{{route('admin.user.status', ['status' => 0, 'id' => $user->id])}}"
@@ -44,7 +48,6 @@
                                                class="label label-warning">{{trans('Disabled')}}</a>
                                         @endif
                                     </td>
-                                    <td>{{$user->home_town}}</td>
                                     <td>
                                         <ul class="table-options">
                                             <li><a href="{{route('admin.user.edit', ['id' => $user->id])}}"><i

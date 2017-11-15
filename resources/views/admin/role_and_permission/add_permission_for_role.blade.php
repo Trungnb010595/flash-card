@@ -51,7 +51,7 @@
                             @foreach($permissions as $permission)
                                 <li class="item">
                                     <div class="col-xs-9">
-                                        <span>{{$permission->name_view}}</span>
+                                        <span>{{$permission->desc}}</span>
                                     </div>
                                     <div class="col-xs-3">
                                         <label class="ckbox ckbox-inline ckbox-info">

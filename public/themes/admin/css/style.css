@@ -1,0 +1,10 @@
+.my_alert{
+    color: red;
+    margin-top: 5px;
+}
+.panel-heading-actions {
+    padding-bottom: 5px;
+    padding-top: 0px;
+    margin-left: 0px;
+    width: 100%;
+}

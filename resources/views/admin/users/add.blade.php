@@ -8,58 +8,60 @@
             <div class="panel-body">
                 <form action="{{route('admin.user.add')}}" method="post">
                     {!! csrf_field() !!}
+
                     <div class="form-group">
                         <label>{{__('Name')}} <span class="text-required"> *</span></label>
                         <div class="row">
                             <div class="col-sm-6">
-                                <input class="form-control" type="text" name="name" required>
+                                <input class="form-control" type="text" name="name" value="{{old('name')}}" required>
+                                @if($errors->first('name'))
+                                    <p class = "my_alert">{{$errors->first('name')}}</p>
+                                @endif
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label>{{__('Email')}}<span class="text-required"> *</span></label>
-                        <input class="form-control" type="email" name="email" required>
+                        <input class="form-control" type="email" name="email" value="{{old('email')}}" required >
+                        @if($errors->first('email'))
+                            <p class = "my_alert">{{$errors->first('email')}}</p>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label>{{__('Password')}}</label>
                         <input class="form-control" type="text" name="password"
-                               placeholder="Type for new password here" minlength="6">
+                               placeholder="Type for new password here" value="{{old('password')}}" minlength="6">
+                        @if($errors->first('password'))
+                            <p class = "my_alert">{{$errors->first('password')}}</p>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <label>{{__('RePassword')}}</label>
+                        <input class="form-control" type="text" name="repassword"
+                               placeholder="Type for re password here" value="{{old('repassword')}}" minlength="6">
+                        @if($errors->first('repassword'))
+                            <p class = "my_alert">{{$errors->first('repassword')}}</p>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label>{{__('Birthday')}}</label>
-                        <input class="form-control" type="date" name="birthday">
+                        <input class="form-control" type="date" name="birthday" value="{{old('birthday')}}">
                     </div>
-                    <div class="form-group">
-                        <label>{{__('Salary')}}</label>
-                        <input class="form-control" type="number" name="salary" value="0">
-                    </div>
-                    <div class="form-group">
-                        <label>{{__('Regency')}}</label>
-                        <select class="form-control" name="regency">
-                            <option value="Adroid Dev">Adroid Dev</option>
-                            <option value="Designer">Designer</option>
-                            <option value="iOS Dev">iOS Dev</option>
-                            <option value="PHP Dev">PHP Dev</option>
-                        </select>
-                    </div>
+
                     <div class="form-group">
                         <label>{{__('Phone')}}</label>
-                        <input class="form-control" type="number" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label>{{__('Native Land')}}</label>
-                        <input class="form-control" type="text" name="native_land">
+                        <input class="form-control" type="number" name="phone" value="{{old('phone')}}">
                     </div>
                     <div class="form-group">
                         <label>{{__('Address')}}</label>
-                        <input class="form-control" type="text" name="address">
+                        <input class="form-control" type="text" name="address" value="{{old('address')}}">
                     </div>
                     <div class="form-group">
                         <label>{{__('Roles')}}</label>
                         <div class="row" style="margin-left: 0px">
                             <select class="select5" name="role_id" style="width: 100px">
                                 @foreach(\Spatie\Permission\Models\Role::all() as $role)
-                                    <option value="{{$role->name}}">{{$role->name}}</option>
+                                    <option value="{{$role->id}}" {{old('role_id')==$role->id?'selected':''}}>{{$role->name}}</option>
                                 @endforeach
                             </select>
                         </div>

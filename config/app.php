@@ -168,6 +168,7 @@ return [
          */
         Laracasts\Flash\FlashServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
 
         //
 

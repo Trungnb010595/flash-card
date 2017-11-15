@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AdminBaseController extends Controller
 {
@@ -37,7 +38,7 @@ class AdminBaseController extends Controller
         $data['current_language'] = $this->language;
         $data['allLanguages'] = $this->allLanguages;
         $data['defaultLanguage'] = $this->defaultLanguage;*/
-        $data['auth'] = user();
+        $data['auth'] = Auth::user();
         return view($view, $data, $mergeData);
     }
 }

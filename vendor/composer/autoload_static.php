@@ -18,6 +18,7 @@ class ComposerStaticInitff9bb807ae1af945f8e1179223ec85b0
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
+        'bd1ee359580080826f6eac3d80d2faaf' => __DIR__ . '/../..' . '/app/Libs/dcommon.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -85,11 +86,16 @@ class ComposerStaticInitff9bb807ae1af945f8e1179223ec85b0
             'Dotenv\\' => 7,
             'Doctrine\\Instantiator\\' => 22,
             'Doctrine\\Common\\Inflector\\' => 26,
+            'Doctrine\\Common\\Cache\\' => 22,
+            'Doctrine\\Common\\Annotations\\' => 28,
+            'Doctrine\\Common\\' => 16,
             'DeepCopy\\' => 9,
         ),
         'C' => 
         array (
+            'Cviebrock\\EloquentSluggable\\' => 28,
             'Cron\\' => 5,
+            'Cocur\\Slugify\\' => 14,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
         ),
@@ -230,13 +236,33 @@ class ComposerStaticInitff9bb807ae1af945f8e1179223ec85b0
         array (
             0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
         ),
+        'Doctrine\\Common\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/cache/lib/Doctrine/Common/Cache',
+        ),
+        'Doctrine\\Common\\Annotations\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/annotations/lib/Doctrine/Common/Annotations',
+        ),
+        'Doctrine\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Cviebrock\\EloquentSluggable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cviebrock/eloquent-sluggable/src',
+        ),
         'Cron\\' => 
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
+        ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
         ),
         'ClassPreloader\\' => 
         array (
@@ -285,16 +311,33 @@ class ComposerStaticInitff9bb807ae1af945f8e1179223ec85b0
                 0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
             ),
         ),
+        'D' => 
+        array (
+            'Doctrine\\DBAL\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/dbal/lib',
+            ),
+            'Doctrine\\Common\\Lexer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
+            'Doctrine\\Common\\Collections\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/doctrine/collections/lib',
+            ),
+        ),
     );
 
     public static $classMap = array (
+        'AddCloneId' => __DIR__ . '/../..' . '/database/migrations/2017_11_08_070340_add_clone_id.php',
+        'AddSeqToSomeTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_09_023251_add_seq_to_some_table.php',
+        'ChangeForeignKeyWordsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_08_080821_change_foreign_key_words_table.php',
         'CreateAccessTokensTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_044838_create_access_tokens_table.php',
         'CreateCoursesTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_044749_create_courses_table.php',
         'CreateLessonsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_044903_create_lessons_table.php',
-        'CreatePermissionTables' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_043633_create_permission_tables.php',
+        'CreatePermissionTables' => __DIR__ . '/../..' . '/database/migrations/2017_11_09_021453_create_permission_tables.php',
         'CreateRememberWordTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_045059_create_remember_word_table.php',
         'CreateUserstbTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_044002_create_userstb_table.php',
-        'CreateWordImgsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_044942_create_word_imgs_table.php',
         'CreateWordsTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_07_044801_create_words_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',

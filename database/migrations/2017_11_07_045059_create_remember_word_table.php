@@ -15,11 +15,15 @@ class CreateRememberWordTable extends Migration
     {
         Schema::create('remember_words', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->string('word_id');
-            $table->string('lesson_id');
-            $table->string('status');
+            $table->integer('user_id')->unsigned();
+            $table->integer('word_id')->unsigned();
+            $table->integer('lesson_id')->unsigned();
+            $table->boolean('status')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('word_id')->references('id')->on('words');
+            $table->foreign('lesson_id')->references('id')->on('lessons');
         });
     }
 

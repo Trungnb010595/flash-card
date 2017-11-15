@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <label>{{trans('Role Name view')}}</label>
-                        <input type="text" class="form-control" name="name_view" value="{{$role_edit?$role_edit->name_view:''}}">
+                        <input type="text" class="form-control" name="desc" value="{{$role_edit?$role_edit->desc:''}}">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary" style="min-width: 100px">{{$role_edit?'Save':'Add'}}</button>
@@ -38,7 +38,7 @@
                         <tr>
                             <th>#</th>
                             <th>name</th>
-                            <th>name_view</th>
+                            <th>desc</th>
                             <th>created_at</th>
                             <th>updated_at</th>
                             <th></th>
@@ -49,7 +49,7 @@
                             <tr>
                                 <td>{{$index+1}}</td>
                                 <td>{{$role->name}}</td>
-                                <td>{{$role->name_view}}</td>
+                                <td>{{$role->desc}}</td>
                                 <td>{{dateToDDMMYY($role->created_at)}}</td>
                                 <td>{{dateToDDMMYY($role->updated_at)}}</td>
                                 <td>

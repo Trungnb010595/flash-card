@@ -34,7 +34,17 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
             'as' => 'admin.logout'
         ]);
 
+        //User
         Route::group(['prefix' => 'user'], function () {
+            Route::get('/list', 'UserController@listUser')->name('admin.user.list');
+            Route::group([],function (){
+                Route::any('add', 'UserController@add')->name('admin.user.add');
+                Route::any('edit', 'UserController@edit')->name('admin.user.edit');
+                Route::get('status', 'UserController@changeStatus')->name('admin.user.status');
+                Route::get('delete', 'UserController@delete')->name('admin.user.delete');
+                /*Route::post('change-vip', 'UserController@changeVip')->name('admin.user.change-vip');*/
+                /*Route::any('check-vip', 'UserController@checkVip')->name('admin.user.check-vip');*/
+            });
 
         });
 
@@ -59,20 +69,34 @@ Route::group(['namespace' => 'Admin','middleware' => 'web'],function (){
             Route::any('add_permission_for_role','RoleAndPermissionController@addPermissionForRole')->name('admin.add-permission-for-role');
         });
 
-        //User
-        Route::group(['prefix' => 'user'], function () {
-            Route::get('/list', 'UserController@listUser')->name('admin.user.list');
-            Route::group([],function (){
-                Route::any('add', 'UserController@add')->name('admin.user.add');
-                Route::any('edit', 'UserController@edit')->name('admin.user.edit');
-                Route::get('status', 'UserController@changeStatus')->name('admin.user.status');
-                Route::get('delete', 'UserController@delete')->name('admin.user.delete');
-                /*Route::post('change-vip', 'UserController@changeVip')->name('admin.user.change-vip');*/
-                /*Route::any('check-vip', 'UserController@checkVip')->name('admin.user.check-vip');*/
-            });
+        //Course
+        Route::group(['prefix' => 'course'],function (){
+            Route::get('','CourseController@index')->name('admin.course.list');
+            Route::any('/add','CourseController@add')->name('admin.course.add');
+            Route::any('/edit','CourseController@edit')->name('admin.course.edit');
+            Route::post('/delete','CourseController@delete')->name('admin.course.delete');
+        });
+
+        //Lesson
+        Route::group(['prefix' => 'lesson'],function (){
+            Route::get('','LessonController@index')->name('admin.lesson.list');
+            Route::post('/add','LessonController@add')->name('admin.lesson.add');
+            Route::any('/edit','LessonController@edit')->name('admin.lesson.edit');
+            Route::get('/delete','LessonController@delete')->name('admin.lesson.delete');
 
         });
+
+        //word
+        Route::group(['prefix' => 'word'],function (){
+            Route::any('/add','WordController@add')->name('admin.word.add');
+            Route::any('/edit','WordController@edit')->name('admin.word.edit');
+            Route::get('/delete','WordController@delete')->name('admin.word.delete');
+        });
+
     });
 
 
+    Route::group(['prefix' => 'ajax'],function (){
+        Route::get('/ajax-get-words','WordController@ajaxGetWords')->name('admin.word.ajax-get-words');
+    });
 });

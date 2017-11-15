@@ -6,13 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCloneId' => $baseDir . '/database/migrations/2017_11_08_070340_add_clone_id.php',
+    'AddSeqToSomeTable' => $baseDir . '/database/migrations/2017_11_09_023251_add_seq_to_some_table.php',
+    'ChangeForeignKeyWordsTable' => $baseDir . '/database/migrations/2017_11_08_080821_change_foreign_key_words_table.php',
     'CreateAccessTokensTable' => $baseDir . '/database/migrations/2017_11_07_044838_create_access_tokens_table.php',
     'CreateCoursesTable' => $baseDir . '/database/migrations/2017_11_07_044749_create_courses_table.php',
     'CreateLessonsTable' => $baseDir . '/database/migrations/2017_11_07_044903_create_lessons_table.php',
-    'CreatePermissionTables' => $baseDir . '/database/migrations/2017_11_07_043633_create_permission_tables.php',
+    'CreatePermissionTables' => $baseDir . '/database/migrations/2017_11_09_021453_create_permission_tables.php',
     'CreateRememberWordTable' => $baseDir . '/database/migrations/2017_11_07_045059_create_remember_word_table.php',
     'CreateUserstbTable' => $baseDir . '/database/migrations/2017_11_07_044002_create_userstb_table.php',
-    'CreateWordImgsTable' => $baseDir . '/database/migrations/2017_11_07_044942_create_word_imgs_table.php',
     'CreateWordsTable' => $baseDir . '/database/migrations/2017_11_07_044801_create_words_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
