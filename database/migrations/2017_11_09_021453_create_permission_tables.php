@@ -14,7 +14,7 @@ class CreatePermissionTables extends Migration
     {
         $config = config('laravel-permission.table_names');
         $config['users'] = 'users';
-
+        Schema::dropIfExists('roles');
         Schema::create($config['roles'], function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
