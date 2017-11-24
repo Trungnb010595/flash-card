@@ -11,7 +11,6 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use Notifiable;
-    use Sluggable;
     use HasRoles;
 
     /**
@@ -31,16 +30,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
-
     public function rememberword(){
         return $this->hasMany('App\RememberWord','user_id','id');
     }
