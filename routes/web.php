@@ -11,12 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+//logout
+Route::get('/logout','UserController@logout')->name('user.logout');
 
 Route::group(['namespace' => 'Web'], function(){
    Route::get('/', 'HomeController@index')->name('home');
+
+    //login-social
+    Route::get('facebook/redirect', 'LoginSocialController@redirectToProviderFB')->name('facebook.login');
+    Route::get('facebook/callback', 'LoginSocialController@handleProviderCallbackFB')->name('facebook.callback');
+
+    Route::get('google/redirect', 'LoginSocialController@redirectToProviderGG')->name('google.login');
+    Route::get('google/callback', 'LoginSocialController@handleProviderCallbackGG')->name('google.callback');
 });
 
 /*BackgroupController - Cloner*/
